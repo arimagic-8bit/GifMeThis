@@ -30,7 +30,7 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         error: false,
         fetching: false,
-        list: {...state.list, ...list},
+        list: [...state.list, ...list],
         count,
         totalCount: total,
       }

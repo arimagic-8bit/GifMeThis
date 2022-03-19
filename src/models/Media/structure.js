@@ -8,6 +8,10 @@ const ModelExpected = [
     defaultValue: '',
   },
   {
+    key: 'urlMedium',
+    defaultValue: '',
+  },
+  {
     key: 'type',
     defaultValue: '',
   },
