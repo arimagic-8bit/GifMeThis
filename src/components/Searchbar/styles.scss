@@ -1,0 +1,25 @@
+@import '../../sass/variables.scss';
+
+.searchContainer{
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 7rem 0 0;
+
+  input, button {
+    border-radius: 0;
+  }
+  
+  .searchbar{
+    flex-grow: 1;
+
+    input {
+      padding: 0.475rem 0.75rem
+    }
+  
+  }
+
+  .searchButton {
+    background: -webkit-linear-gradient($ui-colorGradient1, $ui-colorGradient2);
+    font-weight: bold;
+  }
+}

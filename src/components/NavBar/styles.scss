@@ -1,5 +1,42 @@
 @import '../../sass/variables.scss';
 
+  .container {
+    display: flex;
+    justify-content: flex-start !important;
+    margin: 0 !important;
+
+
+    .navbar-collapse {
+      flex-grow: unset;
+    }
+  }
+
+  .navbar-nav {
+    gap: 1rem;
+  }
+
   .links {
     color: $ui-white !important;
-  }
+    font-size: 1.5em;
+
+    span {
+      background: -webkit-linear-gradient($ui-colorGradient1, $ui-colorGradient2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    &.titleLogo {
+      font-size: 3em;
+      font-weight: bold;
+    }
+
+    &.gradientBorder {
+      border-bottom-width: 3px;
+      border-bottom-style: solid;
+      border-image: linear-gradient(to right, $ui-colorGradient1, $ui-colorGradient2) 1;
+
+      &:hover {
+        background: -webkit-linear-gradient($ui-colorGradient1, $ui-colorGradient3);
+      }
+    }
+  }  
