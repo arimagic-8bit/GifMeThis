@@ -1,0 +1,3 @@
+export const GET_GIFS_REQUEST = "GET_GIFS_REQUEST";
+export const GET_GIFS_SUCCESS = "GET_GIFS_SUCCESS";
+export const GET_GIFS_ERROR = "GET_GIFS_ERROR";

@@ -9,15 +9,16 @@ import {
 } from "react-router-dom";
 import './index.scss';
 import Favourites from './pages/Favourites';
+import store from './services/redux/store';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Intro/>} />
         <Route path="/favourites" element={<Favourites/>} />
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
