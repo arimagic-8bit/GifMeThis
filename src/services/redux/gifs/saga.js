@@ -8,19 +8,23 @@ import {
 } from 'redux-saga/effects';
 import * as TYPES from './types';
 import * as Api from '../../api/gifs';
+import { formatFromApi } from '../../../models/Media/utils';
 
 export function* getGifsThroughApi({ payload }) {
-  console.log('payload', payload)
+
   try {
     const response = yield call(Api.getGifs, payload);
 
     if (response.status === 200) {
-      yield put({ type: TYPES.GET_GIFS_SUCCESS, payload: response });
+
+      const { data: { data, pagination } } = response;
+      const gifList = data.map((d) => formatFromApi(d));
+
+      yield put({ type: TYPES.GET_GIFS_SUCCESS, payload: { count: pagination.count, total: pagination.total_count, list: gifList } });
     } else {
       yield put({ type: TYPES.GET_GIFS_ERROR, payload: response });
     }
   } catch (error) {
-    console.log('error', error)
     yield put({ type: TYPES.GET_GIFS_ERROR, payload: error });
   }
 }

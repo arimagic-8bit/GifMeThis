@@ -2,6 +2,15 @@
 const API_KEY = 'PbM0ylEVwCpo8GeyQBROHAejOplS4B8i';
 const URL = 'https://api.giphy.com/v1';
 
+const parseJSON = async (obj) => {
+  const objStr = await obj.text();
+
+  try {
+    return JSON.parse(objStr);
+  } catch (e) {
+    return objStr;
+  }
+};
 
 export const makeRequest = (params) => {
   const defaultHeaders = { 'Content-Type': 'application/json' };
@@ -18,8 +27,11 @@ export const makeRequest = (params) => {
       headers,
       method
     })
-    .then((response) => {
+    .then(async (response) => {
       const { status } = response;
+
+      response = await parseJSON(response);
+
       if (statusOk.length && !statusOk.includes(status)) {
 
         // eslint-disable-next-line no-throw-literal

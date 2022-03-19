@@ -25,11 +25,14 @@ export default (state = initialState, { type, payload }) => {
         fetching: false
       }
     case TYPES.GET_GIFS_SUCCESS:
+      const { count, total, list } = payload;
       return {
         ...state,
         error: false,
         fetching: false,
-        list: {...state.list, payload}
+        list: {...state.list, ...list},
+        count,
+        totalCount: total,
       }
     default:
       return state;
