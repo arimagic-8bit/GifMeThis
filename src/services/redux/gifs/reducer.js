@@ -19,36 +19,26 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         fetching: true,
         error: false,
-      }
+      };
     case TYPES.GET_GIFS_ERROR:
     case TYPES.SEARCH_GIFS_ERROR:
       return {
         ...state,
         error: payload,
-        fetching: false
-      }
+        fetching: false,
+      };
     case TYPES.SAVE_FAVOURITES:
       return {
         ...state,
         favourites: payload,
-      }
+      };
     case TYPES.DELETE_GIF_LIST:
       return {
         ...state,
         totalCount: 0,
         count: 0,
-        list: []
-      }
-    // case TYPES.SEARCH_GIFS_SUCCESS: 
-    // const { count: countSearch, total: totalSearch, list: listSearch } = payload;
-    // return {
-    //   ...state,
-    //   list: [...state.list, ...listSearch],
-    //   error: false,
-    //   fetching: false,
-    //   count: countSearch,
-    //   totalCount: totalSearch
-    // }
+        list: [],
+      };
     case TYPES.GET_GIFS_SUCCESS:
     case TYPES.SEARCH_GIFS_SUCCESS:
       const { count, total, list } = payload;
@@ -58,9 +48,9 @@ export default (state = initialState, { type, payload }) => {
         error: false,
         fetching: false,
         count: count,
-        totalCount: total
-      }
+        totalCount: total,
+      };
     default:
       return state;
   }
-}
+};

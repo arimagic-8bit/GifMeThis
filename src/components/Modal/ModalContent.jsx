@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { AiFillHeart } from 'react-icons/ai';
+import { AiFillHeart } from "react-icons/ai";
 
 const ModalContent = ({ element }) => {
   const [isFavourite, setIsFavourite] = useState(false);
@@ -16,21 +16,21 @@ const ModalContent = ({ element }) => {
 
   useEffect(() => {
     setIsFavourite(!!favourites[element.id]);
-  }, [favourites, element])
-  
+  }, [favourites, element]);
+
   return (
-  <div className="d-flex justify-content-around">
+    <div className="d-flex justify-content-around">
       <div className="imgContainer p-2">
         <img src={element.urlMedium} alt={element.title} />
       </div>
       <div className="p-2 infoContainer">
         <div className="buttonsContainer">
-          <div 
+          <div
             className="d-flex align-items-center customButton"
             onClick={() => handleFavButton()}
-            >
-              <AiFillHeart className={isFavourite ? 'favourite' : ''}/>
-              <p className="mb-0">Favourite</p>
+          >
+            <AiFillHeart className={isFavourite ? "favourite" : ""} />
+            <p className="mb-0">Favourite</p>
           </div>
         </div>
         <hr />
@@ -40,7 +40,8 @@ const ModalContent = ({ element }) => {
           ))}
         </div>
       </div>
-  </div>
-)};
+    </div>
+  );
+};
 
 export default ModalContent;

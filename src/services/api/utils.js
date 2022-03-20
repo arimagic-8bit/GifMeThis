@@ -7,37 +7,36 @@ const parseJSON = async (obj) => {
     return objStr;
   }
 };
-  
+
 export const makeRequest = (params) => {
-  const defaultHeaders = { 'Content-Type': 'application/json' };
+  const defaultHeaders = { "Content-Type": "application/json" };
 
   const { endpoint, statusOk, requestConfig = {} } = params;
   const body = requestConfig.body ?? undefined;
-  const method = requestConfig.method ?? 'GET';
-  const headers = requestConfig.headers ? {...requestConfig.headers, ...defaultHeaders} : defaultHeaders;
+  const method = requestConfig.method ?? "GET";
+  const headers = requestConfig.headers
+    ? { ...requestConfig.headers, ...defaultHeaders }
+    : defaultHeaders;
 
   return new Promise((resolve, reject) => {
-
     fetch(endpoint, {
       body,
       headers,
-      method
+      method,
     })
-    .then(async (response) => {
-      const { status } = response;
+      .then(async (response) => {
+        const { status } = response;
 
-      response = await parseJSON(response);
+        response = await parseJSON(response);
 
-      if (statusOk.length && !statusOk.includes(status)) {
-
-        // eslint-disable-next-line no-throw-literal
-        throw({ status, errors: response.errors });
-      }
-      resolve({ status, data: response });
-    })
-    .catch((error) => {
-      reject(error);
-    });
+        if (statusOk.length && !statusOk.includes(status)) {
+          // eslint-disable-next-line no-throw-literal
+          throw { status, errors: response.errors };
+        }
+        resolve({ status, data: response });
+      })
+      .catch((error) => {
+        reject(error);
+      });
   });
 };
-  

@@ -3,12 +3,14 @@ import ModelExpected from "./structure";
 import { formatFromApi, retrieveFromLocalStorage } from "./utils";
 
 export default class Media {
-  static entityName = 'Media';
+  static entityName = "Media";
 
   constructor(obj = {}) {
     this.ModelExpected = ModelExpected;
     this.ModelExpected.forEach((element) => {
-      this[element.key] = obj[element.key] ? obj[element.key] : element.defaultValue;
+      this[element.key] = obj[element.key]
+        ? obj[element.key]
+        : element.defaultValue;
     });
   }
 
@@ -18,16 +20,15 @@ export default class Media {
     const favMedia = retrieveFromLocalStorage();
     favMedia[this.id] = this;
     saveFavourites(favMedia);
-    window.localStorage.setItem('favouriteList', JSON.stringify(favMedia));
-  }
+    window.localStorage.setItem("favouriteList", JSON.stringify(favMedia));
+  };
 
   deleteFavourite = () => {
     const favMedia = retrieveFromLocalStorage();
     delete favMedia[this.id];
     saveFavourites(favMedia);
-    window.localStorage.setItem('favouriteList', JSON.stringify(favMedia));
-  }
-
+    window.localStorage.setItem("favouriteList", JSON.stringify(favMedia));
+  };
 }
 const SampleMedia = new Media();
 export { SampleMedia };

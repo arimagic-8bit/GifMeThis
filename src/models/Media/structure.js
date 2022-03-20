@@ -1,31 +1,31 @@
 const ModelExpected = [
   {
-    key: 'id',
-    defaultValue: '',
+    key: "id",
+    defaultValue: "",
   },
   {
-    key: 'embedUrl',
-    defaultValue: '',
+    key: "embedUrl",
+    defaultValue: "",
   },
   {
-    key: 'urlMedium',
-    defaultValue: '',
+    key: "urlMedium",
+    defaultValue: "",
   },
   {
-    key: 'type',
-    defaultValue: '',
+    key: "type",
+    defaultValue: "",
   },
   {
-    key: 'title',
-    defaultValue: '',
+    key: "title",
+    defaultValue: "",
   },
   {
-    key: 'attributes',
+    key: "attributes",
     defaultValue: {
-      dimensions: '',
-      frames: '',
-      uploadedDate: '',
-      size: ''
+      dimensions: "",
+      frames: "",
+      uploadedDate: "",
+      size: "",
     },
   },
 ];

@@ -1,11 +1,11 @@
 export const queryBuilder = (params, noFirst) => {
-  let newQuery = '';
+  let newQuery = "";
 
   Object.entries(params).forEach(([key, value], index) => {
     if (index === 0 && !noFirst) {
-      newQuery+= `?${key}=${value}`
+      newQuery += `?${key}=${value}`;
     } else {
-      newQuery+= `&${key}=${value}`
+      newQuery += `&${key}=${value}`;
     }
   });
 
