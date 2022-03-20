@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, FormControl, Button } from "react-bootstrap";
+import { AiOutlineSearch } from 'react-icons/ai';
 import "./styles.scss"
 
 const Searchbar = ({ placeholder, handleSearch }) => {
@@ -25,7 +26,7 @@ const Searchbar = ({ placeholder, handleSearch }) => {
         onClick={() => handleSearch(search)}
         tabIndex={0}
       >
-        Search
+        <AiOutlineSearch/>
       </Button>
     </div>
   )
