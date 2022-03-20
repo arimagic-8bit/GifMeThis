@@ -1,5 +1,7 @@
 @import '_colors.scss';
 
+$breakpoints: ("small": 320px, "medium": 768px, "large": 1024px) !default;
+
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
 @import "~bootstrap/scss/mixins";

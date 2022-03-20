@@ -1,5 +1,6 @@
+import { saveFavourites } from "../../services/redux/gifs/actions";
 import ModelExpected from "./structure";
-import { formatFromApi } from "./utils";
+import { formatFromApi, retrieveFromLocalStorage } from "./utils";
 
 export default class Media {
   static entityName = 'Media';
@@ -13,16 +14,18 @@ export default class Media {
 
   mapFromApi = (data) => formatFromApi(data);
 
-  getFavourites = () => {
-
-  }
-
-  saveFavourites = () => {
-
+  save = () => {
+    const favMedia = retrieveFromLocalStorage();
+    favMedia[this.id] = this;
+    saveFavourites(favMedia);
+    window.localStorage.setItem('favouriteList', JSON.stringify(favMedia));
   }
 
   deleteFavourite = () => {
-
+    const favMedia = retrieveFromLocalStorage();
+    delete favMedia[this.id];
+    saveFavourites(favMedia);
+    window.localStorage.setItem('favouriteList', JSON.stringify(favMedia));
   }
 
 }

@@ -20,21 +20,14 @@ const ModelExpected = [
     defaultValue: '',
   },
   {
-    key: 'embedUrl',
-    defaultValue: '',
+    key: 'attributes',
+    defaultValue: {
+      dimensions: '',
+      frames: '',
+      uploadedDate: '',
+      size: ''
+    },
   },
-  {
-    key: 'dimensions',
-    defaultValue: '',
-  },
-  {
-    key: 'frames',
-    defaultValue: '',
-  },
-  {
-    key: 'uploadedDate',
-    defaultValue: '',
-  }
 ];
 
 export default ModelExpected;

@@ -4,13 +4,32 @@ import Navigate from '../components/NavBar';
 import Searchbar from '../components/Searchbar';
 import './styles.scss';
 
-const BasicPage = ({ withSearchbar, placeholder, elements }) => (
+const BasicPage = ({ 
+  withSearchbar,
+  placeholder,
+  elements,
+  onPaginate,
+  fetching,
+  modalContent,
+  withSeparator,
+  content: Content,
+  handleSearch,
+  withList,
+}) => (
     <div className='basicPage'>
       <header>
-        <Navigate />
-        {withSearchbar && <Searchbar placeholder={placeholder} />}
+        {withSearchbar && <Searchbar placeholder={placeholder} handleSearch={handleSearch} />}
+        {withSeparator && <hr />}
       </header>
-      <MediaContainer elements={elements} />
+      {withList && (
+        <MediaContainer 
+          elements={elements}
+          onPaginate={onPaginate}
+          fetching={fetching}
+          modalContent={modalContent}
+        />
+      )}
+      {Content && <Content />}
   </div>
 );
 

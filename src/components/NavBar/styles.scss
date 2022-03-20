@@ -4,11 +4,15 @@
     display: flex;
     justify-content: flex-start !important;
     margin: 0 !important;
-
+    padding: 0 !important;
 
     .navbar-collapse {
       flex-grow: unset;
     }
+  }
+
+  .navbar-toggler {
+    background-color: $ui-white !important;
   }
 
   .navbar-nav {

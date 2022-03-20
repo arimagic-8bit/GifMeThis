@@ -1,0 +1,35 @@
+@import '../../sass/variables.scss';
+
+.contentAbout {
+  flex-direction: column;
+  align-items: center;
+  font-size: 2em;
+  font-weight: bold;
+  p {
+    text-align: center;
+  }
+  p, a {
+    color: $ui-white;
+  }
+
+  span {
+    background: -webkit-linear-gradient($ui-colorGradient1, $ui-colorGradient2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  a {
+    text-decoration: none;
+    margin: 0 0.4rem;
+    &:hover {
+      background: -webkit-linear-gradient($ui-colorGradient1, $ui-colorGradient3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      cursor: pointer;
+    }
+  }
+
+  iframe {
+    margin: 1rem 0;
+  }
+}

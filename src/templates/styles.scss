@@ -1,4 +1,8 @@
+@import '../sass/variables.scss';
 
 .basicPage {
-  padding: 2rem 15rem;
+
+  hr {
+    color: $ui-white;
+  }
 }
